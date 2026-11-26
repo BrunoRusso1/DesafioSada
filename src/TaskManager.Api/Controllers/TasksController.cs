@@ -21,10 +21,7 @@ public class TasksController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType<IReadOnlyList<TaskResponseDto>>(StatusCodes.Status200OK)]
-    public async Task<ActionResult<IReadOnlyList<TaskResponseDto>>> GetAll(
-        [FromQuery] TaskItemStatus? status,
-        [FromQuery] DateTime? dueDate,
-        [FromQuery] string? title)
+    public async Task<ActionResult<IReadOnlyList<TaskResponseDto>>> GetAll([FromQuery] TaskItemStatus? status, [FromQuery] DateTime? dueDate, [FromQuery] string? title)
     {
         return Ok(await _service.GetAllAsync(status, dueDate, title));
     }
